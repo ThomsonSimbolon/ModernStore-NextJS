@@ -1,20 +1,6 @@
 import type { NextConfig } from "next";
-/** @type {import('next').NextConfig} */
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["react-day-picker"],
-  experimental: {
-    esmExternals: "loose",
-  },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-      };
-    }
-    return config;
-  },
   images: {
     remotePatterns: [
       {
