@@ -2,15 +2,26 @@
 
 import * as React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { DayPicker } from "react-day-picker";
+import dynamic from "next/dynamic";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
-// Import CSS dari react-day-picker
-import "react-day-picker/style.css";
+// Dynamic import untuk mengatasi masalah module resolution
+const DayPicker = dynamic(
+  () => import("react-day-picker").then((mod) => mod.DayPicker),
+  {
+    ssr: false,
+    loading: () => <div>Loading calendar...</div>,
+  }
+);
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker>;
+export type CalendarProps = {
+  className?: string;
+  classNames?: Record<string, string>;
+  showOutsideDays?: boolean;
+  [key: string]: any;
+};
 
 function Calendar({
   className,
