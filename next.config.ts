@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
 
 const nextConfig: NextConfig = {
+  transpilePackages: ["react-day-picker"],
+  experimental: {
+    esmExternals: "loose",
+  },
   images: {
     remotePatterns: [
       {
