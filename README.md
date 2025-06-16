@@ -142,5 +142,5 @@ The application uses Next.js 13+ App Router architecture. Main features:
 This project is private and not licensed for public use.
 
 ```
-
+https://modern-store-next-js-z2ry.vercel.app/
 ```
